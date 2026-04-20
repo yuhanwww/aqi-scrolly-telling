@@ -1,6 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
+    import { base } from '$app/paths';
+
 
     const cities = [
         { id: 'atl', name: 'Atlanta'     },
@@ -28,7 +30,7 @@
     onMount(async () => {
         const allData = await Promise.all(
             cities.map(c =>
-                d3.csv(`/${c.id}.csv`, d => ({
+                d3.csv(`${base}/${c.id}.csv`, d => ({
                     date: parseDate(d.date),
                     aqi:  +d.aqi,
                 })).then(rows => ({

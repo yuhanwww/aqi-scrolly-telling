@@ -1,9 +1,10 @@
 import * as d3 from 'd3';
+import { base } from '$app/paths';
 
 const parseDate = d3.timeParse("%m/%d/%Y");
 
 export async function loadData() {
-    const aqi = await d3.csv('/atl.csv', d => ({
+    const aqi = await d3.csv(`${base}/atl.csv`, d => ({
         date:            parseDate(d.date),
         year:            new Date(parseDate(d.date)).getFullYear(),
         aqi:             +d.aqi,

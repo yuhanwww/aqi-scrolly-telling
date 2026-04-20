@@ -1,24 +1,17 @@
-# sv
+# To view: 
+This homework is deployed at [https://yuhanwww.github.io/aqi-scrolly-telling/](https://yuhanwww.github.io/aqi-scrolly-telling/).
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# Data Justification: 
+I used part of the dataset from previous homework, but it's not the provided one. The dataset is also expanded to a bigger one -- 2 years of data are added, I also included new datasets in this homework.
 
-## Creating a project
+# Design Justification:
 
-If you're seeing this, you've probably already done this step. Congrats!
+The goal of this scrolly-telling is to tell people the basic of AQI composition, and some ways to inspect everyday data. Through this process, users would be scaffolded the necessary knowledge to interpret AQI and potentially be interested in learning more (e.g. explore different dates, periods, location, etc.)
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Key features of this piece:
+scrolling, highlighting, dynamic filtering / re-organizing, small multiples, circular bar chart, engaging narrative, smooth fading effects.
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.15.1 create --template minimal --types ts --install npm aqi-scroll
-```
-
-## Developing
+## Developing Locaaly
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -29,14 +22,4 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
 
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

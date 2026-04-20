@@ -1,11 +1,13 @@
 <script>
+    import { base } from '$app/paths';
+
     const pollutants = [
-        { id: 'PM2.5', full: 'Particulate Matter 2.5', color: '#e07b54', svg: '/visuals/pm2.5.svg' },
-        { id: 'PM10',  full: 'Particulate Matter 10',  color: '#e0a854', svg: '/visuals/pm10.svg'  },
-        { id: 'O3',    full: 'Ozone',                  color: '#a8c94f', svg: '/visuals/o3.svg'    },
-        { id: 'NO2',   full: 'Nitrogen Dioxide',       color: '#4fa8c9', svg: '/visuals/no2.svg'   },
-        { id: 'CO',    full: 'Carbon Monoxide',        color: '#7b7b7b', svg: '/visuals/co.svg'    },
-        { id: 'SO2',   full: 'Sulfur Dioxide',         color: '#c94f8a', svg: '/visuals/so2.svg'   },
+        { id: 'PM2.5', full: 'Particulate Matter 2.5', color: '#e07b54', svg: 'pm2.5.svg' },
+        { id: 'PM10',  full: 'Particulate Matter 10',  color: '#e0a854', svg: 'pm10.svg'  },
+        { id: 'O3',    full: 'Ozone',                  color: '#a8c94f', svg: 'o3.svg'    },
+        { id: 'NO2',   full: 'Nitrogen Dioxide',       color: '#4fa8c9', svg: 'no2.svg'   },
+        { id: 'CO',    full: 'Carbon Monoxide',        color: '#7b7b7b', svg: 'co.svg'    },
+        { id: 'SO2',   full: 'Sulfur Dioxide',         color: '#c94f8a', svg: 'so2.svg'   },
     ];
 
     const aqiCategories = [
@@ -49,7 +51,7 @@
     <div class="pollutant-grid">
         {#each pollutants as p}
             <div class="pollutant-card">
-                <img src={p.svg} alt={p.id} width="80" height="80" />
+                <img src="{base + '/visuals/' + p.svg}" alt={p.id} width="80" height="80" />
                 <div class="pollutant-id" style="color:{p.color}">{p.id}</div>
                 <div class="full-name">{p.full}</div>
             </div>
@@ -64,7 +66,7 @@
     </div>
 </div>
 <div class="sticky-writing">
-    <img src="/visuals/aqi-scale.jpg" alt="AQI Scale" class="aqi-scale-img" />
+    <img src="{base + '/visuals/aqi-scale.jpg'}" alt="AQI Scale" class="aqi-scale-img" />
 </div>
 <div class="sticky-writing">
     <div class="writing">
@@ -82,7 +84,7 @@
                 <div class="aqi-value" class:is-max={d.value === maxValue}>
                     value: {d.value}
                 </div>
-                <img src="/visuals/{d.id === 'PM2.5' ? 'pm2.5' : d.id === 'PM10' ? 'pm10' : d.id.toLowerCase()}.svg"
+                <img src="{base + '/visuals/' + (d.id === 'PM2.5' ? 'pm2.5' : d.id === 'PM10' ? 'pm10' : d.id.toLowerCase()) + '.svg'}"
                     alt={d.id} width="80" height="80" />
                 <div class="pollutant-id" style="color:{d.color}">{d.id}</div>
             </div>
